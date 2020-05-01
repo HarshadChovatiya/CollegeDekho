@@ -1,0 +1,50 @@
+<app-clientheader></app-clientheader>
+
+<div class="row" style="padding-bottom: 0px;">
+        <div class="col s12">
+          <div class="card bimage">
+            <br>
+            <h1 style="color: white;text-align: center;">By subscribing, you agree to receive regular updates</h1>
+            <div class="card-content white-text">
+              <div class="row">
+                <div class="col s5">
+                  <form #SubscribeuserForm="ngForm">
+                    <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="subscribeUsersService.selectedSubscribeUser._id">
+    
+                    <div class="row">
+                      <div class="input-field col s12" >
+                        <input type="text" style="color: white;" name="user_name" #user_name="ngModel" [(ngModel)]="subscribeUsersService.selectedSubscribeUser.user_name" placeholder = "eg.Barak Obama" required>
+                        <label>User name:
+                          <label class="red-text">*</label>
+                        </label>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                          <input type="text" name="user_email" #user_email="ngModel" [(ngModel)]="subscribeUsersService.selectedSubscribeUser.user_email" placeholder = "eg.user@example.com" required>
+                          <label>User Email :
+                            <label class="red-text">*</label>
+                          </label>
+                        </div>
+                    </div>
+
+    
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <button class="btn btn-custom right" type="button" (click)="resetForm(SubscribeuserForm)">Reset</button>
+                        <button class="btn btn-custom right" type="submit" (click)="onSubmit(SubscribeuserForm)" [disabled]="!SubscribeuserForm.valid">Subscribe</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      
+      </div>
+
+      <app-clientfooter></app-clientfooter>

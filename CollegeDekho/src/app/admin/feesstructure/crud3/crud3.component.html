@@ -1,0 +1,125 @@
+<app-header></app-header>
+<div class="row">
+        <div class="col s12">
+          <div class="card bimage">
+            <div class="card-content white-text">
+              <div class="row">
+                <div class="col s5">
+                  <form #collegeFeesstructuresForm="ngForm">
+                    <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="collegeFeesstructuresService.selectedCollegeFeesstructure._id">
+                   
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <input type="text" name="college_code" #college_code="ngModel" [(ngModel)]="collegeFeesstructuresService.selectedCollegeFeesstructure.college_code" placeholder = "eg.IITB" required>
+                        <label>College Code:
+                          <label class="red-text">*</label>
+                        </label>
+                      </div>
+                    </div>
+    
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <input type="number" name="caution_fee" #caution_fee="ngModel" [(ngModel)]="collegeFeesstructuresService.selectedCollegeFeesstructure.caution_fee" placeholder="eg.25000">
+                        <label>Caution Fees :
+                      </label>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                          <input type="number" name="one_time_fee" #one_time_fee="ngModel" [(ngModel)]="collegeFeesstructuresService.selectedCollegeFeesstructure.one_time_fee" placeholder="eg.25000">
+                              <label>One Time Fees : </label>
+                         </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                              <input type="number" name="tution_fee" #tution_fee="ngModel" [(ngModel)]="collegeFeesstructuresService.selectedCollegeFeesstructure.tution_fee" placeholder="eg.25000">
+                              <label>Tution Fees :</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input type="number" name="other_fee" #other_fee="ngModel" [(ngModel)]="collegeFeesstructuresService.selectedCollegeFeesstructure.other_fee" placeholder="eg.25000">
+                                  <label>Other Fees :</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input type="number" name="mess_fee" #mess_fee="ngModel" [(ngModel)]="collegeFeesstructuresService.selectedCollegeFeesstructure.mess_fee" placeholder="eg.25000">
+                                  <label>Mess Fees :</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input type="number" name="hostel_fee" #hostel_fee="ngModel" [(ngModel)]="collegeFeesstructuresService.selectedCollegeFeesstructure.hostel_fee" placeholder="eg.25000">
+                                  <label>Hostel Fees :</label>
+                         </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                                  <input type="number" name="electricity_water_fee" #electricity_water_fee="ngModel" [(ngModel)]="collegeFeesstructuresService.selectedCollegeFeesstructure.electricity_water_fee" placeholder="eg.25000">
+                                  <label>Electricity water Fees :</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input type="number" name="mess_advance" #mess_advance="ngModel" [(ngModel)]="collegeFeesstructuresService.selectedCollegeFeesstructure.mess_advance" placeholder="eg.25000">
+                                      <label>Mess Advance Fees :</label>
+                            </div>
+                        </div>
+
+                    
+
+                    
+
+    
+                    
+                              
+    
+                    
+    
+    
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <button class="btn btn-custom right" type="button" (click)="resetForm(collegeFeesstructuresForm)">Reset</button>
+                        <button class="btn btn-custom right" type="submit" (click)="onSubmit(collegeFeesstructuresForm)" [disabled]="!collegeFeesstructuresForm.valid">Submit</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <div class="col s7">
+                    <table class="responsive-table highlight">
+                        <thead>
+                          <tr>
+                            <th>Code</th>
+                            <th>Tution Fee</th>
+                            <th>Hostel Fee</th>
+                          </tr>
+                        </thead>
+                        <tr *ngFor="let fees of collegeFeesstructuresService.CollegeFeesstructuress">
+                          <td>{{fees.college_code}}</td>
+                          <td>{{fees.tution_fee}}</td>
+                          <td>{{fees.hostel_fee}}</td>
+                          <td>
+                              <a class="action-btn" (click)="onEdit(fees)">
+                                <i class="material-icons">edit</i>
+                              </a>
+                              <a class="action-btn" (click)="onDelete(fees._id,collegeFeesstructuresForm)">
+                                <i class="material-icons">delete</i>
+                              </a>
+                            </td>
+                        </tr>
+                      </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+      </div>

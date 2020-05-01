@@ -1,0 +1,113 @@
+<app-header></app-header>
+<div class="row">
+        <div class="col s12">
+          <div class="card bimage">
+            <div class="card-content white-text">
+              <div class="row">
+                <div class="col s5">
+                  <form #collegePlacementForm="ngForm">
+                    <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="collegePlacementService.selectedCollegePlacement._id">
+    
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <input type="text" name="college_code" #college_code="ngModel" [(ngModel)]="collegePlacementService.selectedCollegePlacement.college_code" placeholder = "eg.IITB" required>
+                        <label>College Code:
+                          <label class="red-text">*</label>
+                        </label>
+                      </div>
+                    </div>
+    
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <input type="number" name="year" #year="ngModel" [(ngModel)]="collegePlacementService.selectedCollegePlacement.year" placeholder="eg.2017" required>
+                        <label>Year :
+                        <label class="red-text">*</label>
+                      </label>
+                      </div>
+                    </div>
+    
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <input type="text" name="branch" #branch="ngModel" [(ngModel)]="collegePlacementService.selectedCollegePlacement.branch" placeholder="eg.Computer Science and Engineering" required>
+                        <label>Branch :
+                        <label class="red-text">*</label>
+                        </label>
+                      </div>
+                    </div>
+    
+                    <div class="row">
+                        <div class="input-field col s12">
+                          <input type="number" name="no_participated_students" #no_participated_students="ngModel" [(ngModel)]="collegePlacementService.selectedCollegePlacement.no_participated_students" placeholder="eg. 250" required>
+                          <label>No of participated students :
+                          <label class="red-text">*</label>
+                          </label>
+                        </div>
+                     </div>
+    
+                     <div class="row">
+                        <div class="input-field col s12">
+                          <input type="number" name="no_placed_students" #no_placed_students="ngModel" [(ngModel)]="collegePlacementService.selectedCollegePlacement.no_placed_students" placeholder="eg.154" required>
+                          <label>No of placed students :
+                          <label class="red-text">*</label>
+                          </label>
+                        </div>
+                      </div>
+    
+                      <div class="row">
+                          <div class="input-field col s12">
+                            <input type="number" name="placed_percentage" #placed_percentage="ngModel" [(ngModel)]="collegePlacementService.selectedCollegePlacement.placed_percentage" placeholder="eg.93" required>
+                            <label>Placed percentage :
+                            <label class="red-text">*</label>
+                            </label>
+                          </div>
+                        </div>
+    
+                        <div class="row">
+                            <div class="input-field col s12">
+                              <input type="text" name="degree_type" #degree_type="ngModel" [(ngModel)]="collegePlacementService.selectedCollegePlacement.degree_type" placeholder="B.Tech/M.Tech/Msc/Phd/Bsc" required>
+                              <label>Type of Degree :
+                              <label class="red-text">*</label>
+                              </label>
+                            </div>
+                          </div>
+    
+                         
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <button class="btn btn-custom right" type="button" (click)="resetForm(collegePlacementForm)">Reset</button>
+                        <button class="btn btn-custom right" type="submit" (click)="onSubmit(collegePlacementForm)" [disabled]="!collegePlacementForm.valid">Submit</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <div class="col s7">
+                    <table class="responsive-table highlight">
+                        <thead>
+                          <tr>
+                            <th>Code</th>
+                            <th>Branch</th>
+                            <th>Percentage</th>
+                            <th></th>
+                          </tr>
+                        </thead>
+                        <tr *ngFor="let placement of collegePlacementService.CollegePlacements">
+                          <td>{{placement.college_code}}</td>
+                          <td>{{placement.branch}}</td>
+                          <td>{{placement.placed_percentage}}</td>
+                          <td>
+                              <a class="action-btn" (click)="onEdit(placement)">
+                                <i class="material-icons">edit</i>
+                              </a>
+                              <a class="action-btn" (click)="onDelete(placement._id,collegePlacementForm)">
+                                <i class="material-icons">delete</i>
+                              </a>
+                            </td>
+                        </tr>
+                      </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+      </div>

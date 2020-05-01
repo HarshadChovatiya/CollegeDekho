@@ -1,0 +1,185 @@
+<app-header></app-header>
+
+<div class="row">
+    <div class="col s12">
+      <div class="card bimage">
+        <div class="card-content white-text">
+          <div class="row">
+            <div class="col s5">
+              <form #collegeInformationForm="ngForm">
+                <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="collegeInformationService.selectedCollegeInformation._id">
+
+                <div class="row">
+                  <div class="input-field col s12">
+                      <label>College Code:
+                          <label class="red-text">*</label>
+                        </label>
+                    <input type="text" name="college_code" #college_code="ngModel" [(ngModel)]="collegeInformationService.selectedCollegeInformation.college_code" placeholder="eg.IITB" required>
+                    
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="input-field col s12">
+                    <input type="text" name="college_name" #college_name="ngModel" [(ngModel)]="collegeInformationService.selectedCollegeInformation.college_name" placeholder="eg.Indian Institute of Technology, Bombay" required>
+                    <label>College Name :
+                    <label class="red-text">*</label>
+                  </label>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="input-field col s12">
+                    <input type="text" name="college_type" #college_type="ngModel" [(ngModel)]="collegeInformationService.selectedCollegeInformation.college_type" placeholder="Govt./PPP/Private" required>
+                    <label>College Type :
+                    <label class="red-text">*</label>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s12">
+                      <input type="text" name="college_subtype" #college_subtype="ngModel" [(ngModel)]="collegeInformationService.selectedCollegeInformation.college_subtype" placeholder="IIT/NIT/IIIT" required>
+                      <label>College Subtype :
+                      <label class="red-text">*</label>
+                      </label>
+                    </div>
+                 </div>
+
+                 <div class="row">
+                    <div class="input-field col s12">
+                      <input type="text" name="city" #city="ngModel" [(ngModel)]="collegeInformationService.selectedCollegeInformation.city" placeholder="eg.Mumbai" required>
+                      <label>City :
+                      <label class="red-text">*</label>
+                      </label>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                      <div class="input-field col s12">
+                        <input type="text" name="state" #state="ngModel" [(ngModel)]="collegeInformationService.selectedCollegeInformation.state" placeholder="eg.Maharastra" required>
+                        <label>State :
+                        <label class="red-text">*</label>
+                        </label>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                          <input type="text" name="address" #address="ngModel" [(ngModel)]="collegeInformationService.selectedCollegeInformation.address" placeholder="eg. Near Powai Lake" required>
+                          <label>Address :
+                          <label class="red-text">*</label>
+                          </label>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                          <div class="input-field col s12">
+                            <input type="text" name="other_name" #other_name="ngModel" [(ngModel)]="collegeInformationService.selectedCollegeInformation.other_name" placeholder="eg. IIT Powai" required>
+                            <label>Other name :
+                            <label class="red-text">*</label>
+                            </label>
+                          </div>
+                        </div>
+
+                      <div class="row">
+                          <div class="input-field col s12">
+                            <input type="number" name="pincode" #pincode="ngModel" [(ngModel)]="collegeInformationService.selectedCollegeInformation.pincode" placeholder="eg.384002" required>
+                            <label>Pincode :
+                            <label class="red-text">*</label>
+                            </label>
+                          </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="input-field col s12">
+                              <input type="number" name="established_year" #established_year="ngModel" [(ngModel)]="collegeInformationService.selectedCollegeInformation.established_year" placeholder="eg.1986">
+                              <label>Established year :
+                              </label>
+                            </div>
+                          </div>
+
+                          <div class="row">
+                              <div class="input-field col s12">
+                                <input type="text" name="near_station" #near_station="ngModel" [(ngModel)]="collegeInformationService.selectedCollegeInformation.near_station" placeholder="eg.Bandra railway station"/>
+                                <label> Nearest railway station:
+                                </label>
+                              </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="input-field col s12">
+                                  <input type="text" name="near_airport" #near_airport="ngModel" [(ngModel)]="collegeInformationService.selectedCollegeInformation.near_airport" placeholder="eg.Chatrapati shivaji International Airport"/>
+                                  <label> Nearest airport:
+                                  </label>
+                                </div>
+                              </div>
+
+                          <div class="row">
+                              <div class="input-field col s12">
+                                <input type="number" name="away_from_railway_station" #away_from_railway_station="ngModel" [(ngModel)]="collegeInformationService.selectedCollegeInformation.away_from_railway_station" placeholder="eg.18"/>
+                                <label> Away from railway station:
+                                </label>
+                              </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="input-field col s12">
+                                  <input type="number" name="away_from_airport" #away_from_airport="ngModel" [(ngModel)]="collegeInformationService.selectedCollegeInformation.away_from_airport" placeholder="eg.18"/>
+                                  <label> Away from airport:
+                                  </label>
+                                </div>
+                              </div>
+
+                              <div class="row">
+                                <div class="input-field col s12">
+                                  <input type="text" name="website" #website="ngModel" [(ngModel)]="collegeInformationService.selectedCollegeInformation.website" placeholder="eg.http://www.iitb.org"/>
+                                  <label> College Website Link :
+                                  </label>
+                                </div>
+                              </div>
+                            
+
+                          
+
+                
+
+
+                <div class="row">
+                  <div class="input-field col s12">
+                    <button class="btn btn-custom right" type="button" (click)="resetForm(collegeInformationForm)">Reset</button>
+                    <button class="btn btn-custom right" type="submit" (click)="onSubmit(collegeInformationForm)" [disabled]="!collegeInformationForm.valid">Submit</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="col s7">
+                <table class="responsive-table highlight">
+                    <thead>
+                      <tr>
+                        <th>Code</th>
+                        <th>Name</th>
+                        <th>Type</th>
+                      </tr>
+                    </thead>
+                    <tr *ngFor="let college of collegeInformationService.CollegeInformations">
+                      <td>{{college.college_code}}</td>
+                      <td>{{college.college_name}}</td>
+                      <td>{{college.college_type}}</td>
+                      <td>
+                          <a class="action-btn" (click)="onEdit(college)">
+                            <i class="material-icons">edit</i>
+                          </a>
+                          <a class="action-btn" (click)="onDelete(college._id,collegeInformationForm)">
+                            <i class="material-icons">delete</i>
+                          </a>
+                        </td>
+                    </tr>
+                  </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </div>

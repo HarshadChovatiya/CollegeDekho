@@ -1,0 +1,98 @@
+<app-header></app-header>
+<div class="row">
+        <div class="col s12">
+          <div class="card bimage">
+            <div class="card-content white-text">
+              <div class="row">
+                <div class="col s5">
+                  <form #collegeRankingForm="ngForm">
+                    <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="collegeRankingService.selectedCollegeRanking._id">
+    
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <input type="text" name="college_code" #college_code="ngModel" [(ngModel)]="collegeRankingService.selectedCollegeRanking.college_code" placeholder = "eg.IITB" required>
+                        <label>College Code:
+                          <label class="red-text">*</label>
+                        </label>
+                      </div>
+                    </div>
+    
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <input type="number" name="year" #year="ngModel" [(ngModel)]="collegeRankingService.selectedCollegeRanking.year" placeholder="eg.2017" required>
+                        <label>Year :
+                        <label class="red-text">*</label>
+                      </label>
+                      </div>
+                    </div>
+    
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <input type="text" name="nat_or_internat" #nat_or_internat="ngModel" [(ngModel)]="collegeRankingService.selectedCollegeRanking.nat_or_internat" placeholder="eg.National/International" required>
+                        <label>National or International :
+                        <label class="red-text">*</label>
+                        </label>
+                      </div>
+                    </div>
+    
+                    <div class="row">
+                        <div class="input-field col s12">
+                          <input type="text" name="ranked_by" #ranked_by="ngModel" [(ngModel)]="collegeRankingService.selectedCollegeRanking.ranked_by" placeholder="eg. NIRF/OutLook" required>
+                          <label>Ranked By :
+                          <label class="red-text">*</label>
+                          </label>
+                        </div>
+                     </div>
+    
+                     <div class="row">
+                        <div class="input-field col s12">
+                          <input type="number" name="rank" #rank="ngModel" [(ngModel)]="collegeRankingService.selectedCollegeRanking.rank" placeholder="eg.1" required>
+                          <label>Rank :
+                          <label class="red-text">*</label>
+                          </label>
+                        </div>
+                      </div>
+    
+                     
+    
+                         
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <button class="btn btn-custom right" type="button" (click)="resetForm(collegeRankingForm)">Reset</button>
+                        <button class="btn btn-custom right" type="submit" (click)="onSubmit(collegeRankingForm)" [disabled]="!collegeRankingForm.valid">Submit</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <div class="col s7">
+                    <table class="responsive-table highlight">
+                        <thead>
+                          <tr>
+                            <th>Code</th>
+                            <th>National/International</th>
+                            <th>Ranked by</th>
+                            <th>Rank</th>
+                          </tr>
+                        </thead>
+                        <tr *ngFor="let rank of collegeRankingService.CollegeRankings">
+                          <td>{{rank.college_code}}</td>
+                          <td>{{rank.nat_or_internat}}</td>
+                          <td>{{rank.ranked_by}}</td>
+                          <td>{{rank.rank}}</td>
+                          <td>
+                              <a class="action-btn" (click)="onEdit(rank)">
+                                <i class="material-icons">edit</i>
+                              </a>
+                              <a class="action-btn" (click)="onDelete(rank._id,collegeRankingForm)">
+                                <i class="material-icons">delete</i>
+                              </a>
+                            </td>
+                        </tr>
+                      </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+      </div>

@@ -1,0 +1,80 @@
+.bg
+{
+    position : relative;
+    height:500px;
+    width:100%
+}
+.collegename
+{
+    position : relative;
+    text-align : center;
+    top : -160px;
+    color: #ffffff;
+}
+.address{
+    position : relative;
+    top : -160px;
+    color: #ffffff;
+    text-align: center;
+}
+.div1
+{
+  background-color: #5bcce0;
+  position: relative;
+  top: 0;
+  left: 0;
+  height : 4500px;
+}
+.div2
+{
+
+  position: absolute;
+  top: 120px;
+  left: 575px;
+  background-color : white;
+}
+
+.heading
+{
+    padding-left: 100px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.content
+{
+    padding-left : 100px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+hr{
+  margin-left: 50px;
+  margin-right: 50px;
+  display: block;
+  border-width: 2px;
+
+}
+ol
+{
+    list-style: disc;
+}
+
+#panel1 ,#cutoff2017table,#cutoff2018table,#cutoff2019table,#placement2018table ,#placement2019table{
+    display : none;
+}
+#panel2  {
+    display : none;
+}
+#panel3  {
+    display : none;
+}
+#panel4  {
+    display : none;
+}
+#flip1,#flip2,#flip3,#flip4,#cutoff2017,#cutoff2018,#cutoff2019,#placement2018,#placement2019{
+    padding: 5px;
+    text-align: center;
+    padding-left : 5px;
+    padding-right : 5px;
+    margin-left: 50px;
+    margin-right: 50px;
+    background-color : #1cb6d1;
+    border: solid 1px #16a7c0;
+  }

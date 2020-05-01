@@ -1,0 +1,79 @@
+<app-header></app-header>
+<div class="row">
+        <div class="col s12">
+          <div class="card bimage">
+            <div class="card-content white-text">
+              <div class="row">
+                <div class="col s5">
+                  <form #collegeBranchesForm="ngForm">
+                    <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="CollegeBranchesService.selectedCollegeBranches._id">
+    
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <input type="text" name="college_code" #college_code="ngModel" [(ngModel)]="CollegeBranchesService.selectedCollegeBranches.college_code" placeholder = "eg.IITB" required>
+                        <label>College Code:
+                          <label class="red-text">*</label>
+                        </label>
+                      </div>
+                    </div>
+                   
+
+                    <div class="row">
+                            <div class="input-field col s12">
+                              <input type="text" name="branch_code" #branch_code="ngModel" [(ngModel)]="CollegeBranchesService.selectedCollegeBranches.branch_code" placeholder = "eg.CSE" required>
+                              <label>Branch Code:
+                                <label class="red-text">*</label>
+                              </label>
+                            </div>
+                    </div>
+
+                    <div class="row">
+                            <div class="input-field col s12">
+                              <input type="text" name="branch_name" #branch_name="ngModel" [(ngModel)]="CollegeBranchesService.selectedCollegeBranches.branch_name" placeholder = "eg.Computer Science and Engineering" required>
+                              <label>Branch Name:
+                                <label class="red-text">*</label>
+                              </label>
+                            </div>
+                    </div>
+
+                   
+    
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <button class="btn btn-custom right" type="button" (click)="resetForm(collegeBranchesForm)">Reset</button>
+                        <button class="btn btn-custom right" type="submit" (click)="onSubmit(collegeBranchesForm)" [disabled]="!collegeBranchesForm.valid">Submit</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                
+                <div class="col s7">
+                    <table class="responsive-table highlight">
+                        <thead>
+                          <tr>
+                            <th>Code</th>
+                            <th>Branch Code</th>
+                            <th>Branch Name</th>
+                          </tr>
+                        </thead>
+                        <tr *ngFor="let branches of CollegeBranchesService.CollegeBranchess">
+                          <td>{{branches.college_code}}</td>
+                          <td>{{branches.branch_code}}</td>
+                          <td>{{branches.branch_name}}</td>
+                          <td>
+                              <a class="action-btn" (click)="onEdit(branches)">
+                                <i class="material-icons">edit</i>
+                              </a>
+                              <a class="action-btn" (click)="onDelete(branches._id,collegeBranchesForm)">
+                                <i class="material-icons">delete</i>
+                              </a>
+                            </td>
+                        </tr>
+                      </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+      </div>

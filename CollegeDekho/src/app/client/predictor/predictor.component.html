@@ -1,0 +1,134 @@
+<app-clientheader></app-clientheader>
+<div class="page">
+
+        <div>
+            <img src="../../../assets/Photos/ranking1.jpg" style="height: 600px;">
+            <div class="centered"><h1>WE HELP YOU TO <span id="one">PREDICT COLLEGES</span></h1>
+        
+                <br><br><br>
+                &nbsp;&nbsp;
+                <button class="btn btn-info" (click) = "JeeAdvanced()" id="advanced">FOR JEE ADVANCED</button>
+        </div>
+       
+       
+
+            <div class="content" id = "rankform">
+                <p style="text-align: center;">Enter your Rank of JEE {{exam}}</p>
+            <form #collegepredictorform = "ngForm">
+        
+                    <div class="row">
+                            <div class="input-field col s12">
+                                <input type = "text" name = "catagory" #catagory="ngModel" [(ngModel)] = "catagoryvalue" placeholder="General/OBC/SC/ST"/>
+                                <label style="color: black;">Enter your Catagory :
+                                </label>
+                            </div>
+                    </div>
+                    <div class="row">
+                            <div class="input-field col s12">
+                                <input type = "text" name = "rank" #rank="ngModel" [(ngModel)] = "rankvalue" placeholder="eg.1"/>
+                                <label style="color: black;"> Enter your Rank :
+                                </label>
+                            </div>
+                    </div>
+
+                    <div class="row">
+                            <div class="input-field col s12">
+                                <input type = "text" name = "branch" #branch="ngModel" [(ngModel)] = "branchvalue" placeholder="eg.Computer science and Engineering"/>
+                                <label style="color: black;"> Choose your Branch :
+                                </label>
+                            </div>
+                    </div>
+            
+        
+                   <!--<button class="btn btn-primary" type="submit" (click)="onSubmit(collegepredictorform)">GO</button>-->
+        
+            </form>
+            </div>
+        
+      
+        
+                <div [ngSwitch] = "catagoryvalue">
+                    <div *ngSwitchCase = "'General'"> 
+                            <p style="text-align: center;color:red;"> *As per previous year data</p>
+                                    <div class="content">
+                                            <table class="table table-striped">
+                                                <tr>
+                                                    <th>College</th>
+                                                    <th>Branch</th>
+                                                    <th>College Infromation</th>
+                                                </tr>
+                                                <tr *ngFor = "let cutoff of collegeCutoffService.CollegeCutoffs">
+                                                    <td *ngIf = "cutoff.year == '2019' && cutoff.g_close >= rankvalue && (cutoff.branch == branchvalue || branchvalue == '') && rankvalue != ''" >{{cutoff.college_name}}</td>
+                                                    <td *ngIf = "cutoff.year == '2019' && cutoff.g_close >= rankvalue && (cutoff.branch == branchvalue || branchvalue == '') && rankvalue != ''">{{cutoff.branch}}</td>
+                                                    <td *ngIf = "cutoff.year == '2019' && cutoff.g_close >= rankvalue && (cutoff.branch == branchvalue || branchvalue == '') && rankvalue != ''"><a target = "_blank"  (click) = "onClick(cutoff)">More Information</a></td>
+                                                </tr>
+                                            </table>
+                                     </div>                                
+                    </div>
+                    <div *ngSwitchCase = "'OBC'">
+                            <p style="text-align: center;color:red;"> *As per previous year data</p>
+                            <div class="content">
+                                    <table class="table table-striped">
+                                        <tr>
+                                            <th>College</th>
+                                            <th>Branch</th>
+                                            <th>Catagory</th>
+                                        </tr>
+                                        <tr *ngFor = "let cutoff of collegeCutoffService.CollegeCutoffs">
+                                            <td *ngIf = "cutoff.year == '2019' && cutoff.obc_close >= rankvalue && (cutoff.branch == branchvalue || branchvalue == '') && rankvalue != ''" >{{cutoff.college_name}}</td>
+                                            <td *ngIf = "cutoff.year == '2019' && cutoff.obc_close >= rankvalue && (cutoff.branch == branchvalue || branchvalue == '') && rankvalue != ''">{{cutoff.branch}}</td>
+                                            <td *ngIf = "cutoff.year == '2019' && cutoff.obc_close >= rankvalue && (cutoff.branch == branchvalue || branchvalue == '') && rankvalue != ''">{{cutoff.obc_open}}</td>
+                                        </tr>
+                                    </table>
+                             </div>
+                    </div>
+                    <div *ngSwitchCase = "'SC'">
+                            <p style="text-align: center;color:red;"> *As per previous year data</p>
+                            <div class="content">
+                                    <table class="table table-striped">
+                                        <tr>
+                                            <th>College</th>
+                                            <th>Branch</th>
+                                            <th>Catagory</th>
+                                        </tr>
+                                        <tr *ngFor = "let cutoff of collegeCutoffService.CollegeCutoffs">
+                                            <td *ngIf = "cutoff.year == '2019' && cutoff.sc_close >= rankvalue && (cutoff.branch == branchvalue || branchvalue == '') && rankvalue != ''" >{{cutoff.college_name}}</td>
+                                            <td *ngIf = "cutoff.year == '2019' && cutoff.sc_close >= rankvalue && (cutoff.branch == branchvalue || branchvalue == '') && rankvalue != ''">{{cutoff.branch}}</td>
+                                            <td *ngIf = "cutoff.year == '2019' && cutoff.sc_close >= rankvalue && (cutoff.branch == branchvalue || branchvalue == '') && rankvalue != ''">{{cutoff.sc_open}}</td>
+                                        </tr>
+                                    </table>
+                             </div>
+                        
+                    </div>
+                    <div *ngSwitchCase = "'ST'">
+                            <p style="text-align: center;color:red;"> *As per previous year data</p>
+                            <div class="content">
+                                    <table class="table table-striped">
+                                        <tr>
+                                            <th>College</th>
+                                            <th>Branch</th>
+                                            <th>Catagory</th>
+                                        </tr>
+                                        <tr *ngFor = "let cutoff of collegeCutoffService.CollegeCutoffs">
+                                            <td *ngIf = "cutoff.year == '2019' && cutoff.st_close >= rankvalue && (cutoff.branch == branchvalue || branchvalue == '') && rankvalue != ''" >{{cutoff.college_name}}</td>
+                                            <td *ngIf = "cutoff.year == '2019' && cutoff.st_close >= rankvalue && (cutoff.branch == branchvalue || branchvalue == '') && rankvalue != ''">{{cutoff.branch}}</td>
+                                            <td *ngIf = "cutoff.year == '2019' && cutoff.st_close >= rankvalue && (cutoff.branch == branchvalue || branchvalue == '') && rankvalue != ''">{{cutoff.st_open}}</td>
+                                        </tr>
+                                    </table>
+                             </div>
+                        
+                    </div>
+                    <div *ngSwitchDefault>
+                        <p style="text-align: center;"> Please Write Any One of General/OBC/ST/SC</p>
+                    </div>
+                </div>
+
+
+
+              <!-- <div *ngIf = "cutoff.g_close >= rankvalue">
+                    {{cutoff.branch}} -- {{cutoff.g_open}} -- {{cutoff.g_close}} -- {{cutoff.year}} -- {{cutoff.college_code}}
+                </div>
+            -->
+        
+</div>      
+

@@ -1,0 +1,181 @@
+<app-header></app-header>
+<div class="row">
+        <div class="col s12">
+          <div class="card bimage">
+            <div class="card-content white-text">
+              <div class="row">
+                <div class="col s5">
+                  <form #collegeCutoffForm="ngForm">
+                    <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="collegeCutoffService.selectedCollegeCutoff._id">
+                    <input type="hidden" name="subscribeuserlist" #subscribeuserlist = "ngModel" [(ngModel)] = "subscribeUsersService.SubscribeUserss">
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <input type="text" name="college_code" #college_code="ngModel" [(ngModel)]="collegeCutoffService.selectedCollegeCutoff.college_code" placeholder = "eg.IITB" required>
+                        <label>College Code:
+                          <label class="red-text">*</label>
+                        </label>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                          <input type="text" name="college_name" #college_name="ngModel" [(ngModel)]="collegeCutoffService.selectedCollegeCutoff.college_name" placeholder = "eg.Indian Institute of Technology Bombay" required>
+                          <label>College Name :
+                            <label class="red-text">*</label>
+                          </label>
+                        </div>
+                    </div>
+                   
+
+                    <div class="row">
+                            <div class="input-field col s12">
+                              <input type="number" name="year" #year="ngModel" [(ngModel)]="collegeCutoffService.selectedCollegeCutoff.year" placeholder = "eg.2007" required>
+                              <label>Year:
+                                <label class="red-text">*</label>
+                              </label>
+                            </div>
+                    </div>
+
+                    <div class="row">
+                            <div class="input-field col s12">
+                              <input type="text" name="branch" #branch="ngModel" [(ngModel)]="collegeCutoffService.selectedCollegeCutoff.branch" placeholder = "eg.Computer Science and Engineering" required>
+                              <label>Branch:
+                                <label class="red-text">*</label>
+                              </label>
+                            </div>
+                    </div>
+
+                    <div class="row">
+                            <div class="input-field col s12">
+                              <input type="text" name="quota" #quota="ngModel" [(ngModel)]="collegeCutoffService.selectedCollegeCutoff.quota" placeholder = "Home/Other" required>
+                              <label>Quota:
+                                <label class="red-text">*</label>
+                              </label>
+                            </div>
+                    </div>
+    
+                    <div class="row">
+                            <div class="input-field col s12">
+                              <input type="number" name="g_open" #g_open="ngModel" [(ngModel)]="collegeCutoffService.selectedCollegeCutoff.g_open" placeholder = "eg.254" required>
+                              <label>General Opening Rank:
+                                <label class="red-text">*</label>
+                              </label>
+                            </div>
+                    </div>
+
+                    <div class="row">
+                            <div class="input-field col s12">
+                              <input type="number" name="g_close" #g_close="ngModel" [(ngModel)]="collegeCutoffService.selectedCollegeCutoff.g_close" placeholder = "eg.500" required>
+                              <label>General Closing Rank:
+                                <label class="red-text">*</label>
+                              </label>
+                            </div>
+                    </div>
+
+                    <div class="row">
+                            <div class="input-field col s12">
+                              <input type="number" name="obc_open" #obc_open="ngModel" [(ngModel)]="collegeCutoffService.selectedCollegeCutoff.obc_open" placeholder = "eg.404" required>
+                              <label>OBC Opening Rank:
+                                <label class="red-text">*</label>
+                              </label>
+                            </div>
+                    </div>
+
+                    <div class="row">
+                            <div class="input-field col s12">
+                              <input type="number" name="obc_close" #obc_close="ngModel" [(ngModel)]="collegeCutoffService.selectedCollegeCutoff.obc_close" placeholder = "eg.725" required>
+                              <label>OBC Closing Rank:
+                                <label class="red-text">*</label>
+                              </label>
+                            </div>
+                    </div>
+
+                    <div class="row">
+                            <div class="input-field col s12">
+                              <input type="number" name="sc_open" #sc_open="ngModel" [(ngModel)]="collegeCutoffService.selectedCollegeCutoff.sc_open" placeholder = "eg.4524" required>
+                              <label>SC Opening Rank:
+                                <label class="red-text">*</label>
+                              </label>
+                            </div>
+                    </div>
+
+                    <div class="row">
+                            <div class="input-field col s12">
+                              <input type="number" name="sc_close" #sc_close="ngModel" [(ngModel)]="collegeCutoffService.selectedCollegeCutoff.sc_close" placeholder = "eg.7452" required>
+                              <label>SC Closing Rank:
+                                <label class="red-text">*</label>
+                              </label>
+                            </div>
+                    </div>
+
+                    <div class="row">
+                            <div class="input-field col s12">
+                              <input type="number" name="st_open" #st_open="ngModel" [(ngModel)]="collegeCutoffService.selectedCollegeCutoff.st_open" placeholder = "eg.25445" required>
+                              <label>ST Opening Rank:
+                                <label class="red-text">*</label>
+                              </label>
+                            </div>
+                    </div>
+
+                    <div class="row">
+                            <div class="input-field col s12">
+                              <input type="number" name="st_close" #st_close="ngModel" [(ngModel)]="collegeCutoffService.selectedCollegeCutoff.st_close" placeholder = "eg.50045" required>
+                              <label>ST Closing Rank:
+                                <label class="red-text">*</label>
+                              </label>
+                            </div>
+                    </div>
+
+                    <div class="row">
+                            <div class="input-field col s12">
+                              <input type="number" name="round" #round="ngModel" [(ngModel)]="collegeCutoffService.selectedCollegeCutoff.round" placeholder = "eg.2" required>
+                              <label>Round Number:
+                                <label class="red-text">*</label>
+                              </label>
+                            </div>
+                        </div> 
+
+    
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <button class="btn btn-custom right" type="button" (click)="resetForm(collegeCutoffForm)">Reset</button>
+                        <button class="btn btn-custom right" type="submit" (click)="onSubmit(collegeCutoffForm)" [disabled]="!collegeCutoffForm.valid">Submit</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                
+                <div class="col s7">
+                    <table class="responsive-table highlight">
+                        <thead>
+                          <tr>
+                            <th>Code</th>
+                            <th>Year</th>
+                            <th>Brach</th>
+                            <th>Quota</th>
+                            <th>Round</th>
+                          </tr>
+                        </thead>
+                        <tr *ngFor="let cutoff of collegeCutoffService.CollegeCutoffs">
+                          <td>{{cutoff.college_code}}</td>
+                          <td>{{cutoff.year}}</td>
+                          <td>{{cutoff.branch}}</td>
+                          <td>{{cutoff.quota}}</td>
+                          <td>{{cutoff.round}}</td>
+                          <td>
+                              <a class="action-btn" (click)="onEdit(cutoff)">
+                                <i class="material-icons">edit</i>
+                              </a>
+                              <a class="action-btn" (click)="onDelete(cutoff._id,collegeCutoffForm)">
+                                <i class="material-icons">delete</i>
+                              </a>
+                            </td>
+                        </tr>
+                      </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+      </div>

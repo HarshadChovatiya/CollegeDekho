@@ -1,0 +1,366 @@
+<!--You have selected {{collegecode}}-->  
+<app-clientheader></app-clientheader>
+<div class="div1">
+    <img class="bg" src="../../../assets/Photos/singlecollege1.jpg" style="opacity: 0.7;" />
+    <div class="div2">
+            <img style ="border : 5px double black;" src={{collegeInformationService.selectedCollegeInformation.logo_path}}/>
+    </div>
+    <div class="collegename"><h1>{{collegeInformationService.selectedCollegeInformation.college_name}}</h1></div>
+    <div class="address">
+            <h5>
+                    {{collegeInformationService.selectedCollegeInformation.address}}, 
+                    {{collegeInformationService.selectedCollegeInformation.city}}, {{collegeInformationService.selectedCollegeInformation.state}}-{{collegeInformationService.selectedCollegeInformation.pincode}}
+            </h5>   
+
+    </div>
+
+    <div class="heading"><h3 style="left:100px;">ALSO KNOWN AS</h3></div>
+    <hr>
+    <div class="content"><h6>Also known as {{collegeInformationService.selectedCollegeInformation.other_name}}</h6></div>
+    <br>
+    <br>
+    <div class="heading"><h3 style="left:100px;">YEAR OF ESTABLISHMENT</h3></div>
+    <hr>
+    <div class="content"><h6>{{collegeInformationService.selectedCollegeInformation.established_year}}</h6></div>
+
+
+    <br>
+    <br>
+    <div class="heading"><h3 style="left:100px;">CONNECTIVITY (HOW TO REACH)</h3></div>
+    <hr>
+    <div class="content"><h6><b>Nearest Airport : </b>{{collegeInformationService.selectedCollegeInformation.near_airport}}</h6></div>
+    <div class="content"><h6><b>Distance from Airport : </b>{{collegeInformationService.selectedCollegeInformation.away_from_airport}}</h6></div>
+    <div class="content"><h6><b>Nearest Railway Station : </b>{{collegeInformationService.selectedCollegeInformation.near_station}}</h6></div>
+    <div class="content"><h6><b>Distance from Railway Station : </b>{{collegeInformationService.selectedCollegeInformation.away_from_railway_station}}</h6></div>
+
+    <br>
+    <br>
+    <div class="heading"><h3 style="left:100px;">RANKING</h3></div>
+    <hr>
+
+    <div *ngFor = "let rank of collegeRankingService.CollegeRankings">
+            <div class="content"><h6><b>By {{rank.ranked_by}} in {{rank.year}} ({{rank.nat_or_internat}})</b> : {{rank.rank}} </h6></div>
+    </div>
+
+    <br>
+    <br>
+    <div class="heading"><h3 style="left:100px;">MODE OF ADMISSION</h3></div>
+    <hr>
+    <div class="content">
+        <ol>
+         <li>It is a two-step process. One needs to qualify the JEE (Main) exam and then take the JEE (Advanced) exam.</li>
+         <li> One must have secured at least 75% marks (65% for SC/ST/PwD) in Class XII OR One must be within the category-wise top 20 percentile in his/her respective Class XII board examination.</li>
+         <li>Admissions are done on the basis of rank in JEE (Advanced) through JoSAA Counselling.</li>
+        </ol>
+    </div>
+
+    <br>
+    <br>
+    <div class="heading"><h3 style="left:100px;">COURSES OFFERED</h3></div>
+    <hr>
+    <div *ngFor = "let branch of collegeBranchesService.CollegeBranchess">
+        <div class="content">
+            <ol>
+                <li>{{branch.branch_name}}</li>
+            </ol>
+        </div>
+    </div>
+
+    <br>
+    <br>
+    <div class="heading"><h3 style="left:100px;">SEAT MATRIX</h3></div>
+    <hr>
+    <div id="flip1">General</div>
+    <br>
+    <div class="content" id="panel1">
+            <table class="table table-striped">
+                <tr>
+                    <th>Branch</th>
+                    <th>Seats</th>
+                    <th>Catagory</th>
+                </tr>
+                <tr *ngFor = "let seat of collegeSeatmatrixService.CollegeSeatmatrixs" >
+                    
+                    <td *ngIf = "seat.catagory == 'General'" >{{seat.branch}}</td>
+                    <td *ngIf = "seat.catagory == 'General'">{{seat.no_of_seats}}</td>
+                    <td *ngIf = "seat.catagory == 'General'">{{seat.catagory}}</td>
+                </tr>
+            </table>
+     </div>
+    <div id="flip2">OBC</div>
+    <br>
+    <div class="content" id="panel2">
+            <table class="table table-striped">
+                <tr>
+                    <th>Branch</th>
+                    <th>Seats</th>
+                    <th>Catagory</th>
+                </tr>
+                <tr *ngFor = "let seat of collegeSeatmatrixService.CollegeSeatmatrixs" >
+                    
+                    <td *ngIf = "seat.catagory == 'OBC'" >{{seat.branch}}</td>
+                    <td *ngIf = "seat.catagory == 'OBC'">{{seat.no_of_seats}}</td>
+                    <td *ngIf = "seat.catagory == 'OBC'">{{seat.catagory}}</td>
+                </tr>
+            </table>
+     </div>
+    <div id="flip3">SC</div>
+    <br>
+    <div class="content" id="panel3">
+            <table class="table table-striped">
+                <tr>
+                    <th>Branch</th>
+                    <th>Seats</th>
+                    <th>Catagory</th>
+                </tr>
+                <tr *ngFor = "let seat of collegeSeatmatrixService.CollegeSeatmatrixs" >
+                    
+                    <td *ngIf = "seat.catagory == 'SC'" >{{seat.branch}}</td>
+                    <td *ngIf = "seat.catagory == 'SC'">{{seat.no_of_seats}}</td>
+                    <td *ngIf = "seat.catagory == 'SC'">{{seat.catagory}}</td>
+                </tr>
+            </table>
+     </div>
+    <div id="flip4">ST</div>
+    <br>
+     <div class="content" id="panel4">
+            <table class="table table-striped">
+                <tr>
+                    <th>Branch</th>
+                    <th>Seats</th>
+                    <th>Catagory</th>
+                </tr>
+                <tr *ngFor = "let seat of collegeSeatmatrixService.CollegeSeatmatrixs" >
+                    
+                    <td *ngIf = "seat.catagory == 'ST'" >{{seat.branch}}</td>
+                    <td *ngIf = "seat.catagory == 'ST'">{{seat.no_of_seats}}</td>
+                    <td *ngIf = "seat.catagory == 'ST'">{{seat.catagory}}</td>
+                </tr>
+            </table>
+     </div>
+
+
+     <br>
+     <br>
+     <div class="heading"><h3 style="left:100px;">CUTOFF RANK(OPENING & CLOSING)</h3></div>
+     <hr>
+    <div id="cutoff2017">2017</div>
+    <br>
+    <div class="content" id="cutoff2017table">
+            <table class="table table-striped">
+                <tr>
+                    <th>Branch</th>
+                    <th>General(Open)</th>
+                    <th>General(Close)</th>
+                    <th>OBC(Open)</th>
+                    <th>OBC(Close)</th>
+                    <th>SC(Open)</th>
+                    <th>SC(Close)</th>
+                    <th>ST(Open)</th>
+                    <th>ST(Close)</th>
+                </tr>
+                <tr *ngFor = "let cutoff of collegeCutoffService.CollegeCutoffs" >
+                    
+                    <td *ngIf = "cutoff.year == '2017'" >{{cutoff.branch}}</td>
+                    <td *ngIf = "cutoff.year == '2017'">{{cutoff.g_open}}</td>
+                    <td *ngIf = "cutoff.year == '2017'">{{cutoff.g_close}}</td>
+                    <td *ngIf = "cutoff.year == '2017'">{{cutoff.obc_open}}</td>
+                    <td *ngIf = "cutoff.year == '2017'">{{cutoff.obc_close}}</td>
+                    <td *ngIf = "cutoff.year == '2017'">{{cutoff.sc_open}}</td>
+                    <td *ngIf = "cutoff.year == '2017'">{{cutoff.sc_close}}</td>
+                    <td *ngIf = "cutoff.year == '2017'">{{cutoff.st_open}}</td>
+                    <td *ngIf = "cutoff.year == '2017'">{{cutoff.st_close}}</td>
+                </tr>
+            </table>
+     </div>
+
+     <div id="cutoff2018">2018</div>
+    <br>
+    <div class="content" id="cutoff2018table">
+            <table class="table table-striped">
+                <tr>
+                    <th>Branch</th>
+                    <th>General(Open)</th>
+                    <th>General(Close)</th>
+                    <th>OBC(Open)</th>
+                    <th>OBC(Close)</th>
+                    <th>SC(Open)</th>
+                    <th>SC(Close)</th>
+                    <th>ST(Open)</th>
+                    <th>ST(Close)</th>
+                </tr>
+                <tr *ngFor = "let cutoff of collegeCutoffService.CollegeCutoffs" >
+                    
+                    <td *ngIf = "cutoff.year == '2018'" >{{cutoff.branch}}</td>
+                    <td *ngIf = "cutoff.year == '2018'">{{cutoff.g_open}}</td>
+                    <td *ngIf = "cutoff.year == '2018'">{{cutoff.g_close}}</td>
+                    <td *ngIf = "cutoff.year == '2018'">{{cutoff.obc_open}}</td>
+                    <td *ngIf = "cutoff.year == '2018'">{{cutoff.obc_close}}</td>
+                    <td *ngIf = "cutoff.year == '2018'">{{cutoff.sc_open}}</td>
+                    <td *ngIf = "cutoff.year == '2018'">{{cutoff.sc_close}}</td>
+                    <td *ngIf = "cutoff.year == '2018'">{{cutoff.st_open}}</td>
+                    <td *ngIf = "cutoff.year == '2018'">{{cutoff.st_close}}</td>
+                </tr>
+            </table>
+     </div>
+
+     <div id="cutoff2019">2019</div>
+    <br>
+    <div class="content" id="cutoff2019table">
+            <table class="table table-striped">
+                <tr>
+                    <th>Branch</th>
+                    <th>General(Open)</th>
+                    <th>General(Close)</th>
+                    <th>OBC(Open)</th>
+                    <th>OBC(Close)</th>
+                    <th>SC(Open)</th>
+                    <th>SC(Close)</th>
+                    <th>ST(Open)</th>
+                    <th>ST(Close)</th>
+                </tr>
+                <tr *ngFor = "let cutoff of collegeCutoffService.CollegeCutoffs" >
+                    
+                    <td *ngIf = "cutoff.year == '2019'" >{{cutoff.branch}}</td>
+                    <td *ngIf = "cutoff.year == '2019'">{{cutoff.g_open}}</td>
+                    <td *ngIf = "cutoff.year == '2019'">{{cutoff.g_close}}</td>
+                    <td *ngIf = "cutoff.year == '2019'">{{cutoff.obc_open}}</td>
+                    <td *ngIf = "cutoff.year == '2019'">{{cutoff.obc_close}}</td>
+                    <td *ngIf = "cutoff.year == '2019'">{{cutoff.sc_open}}</td>
+                    <td *ngIf = "cutoff.year == '2019'">{{cutoff.sc_close}}</td>
+                    <td *ngIf = "cutoff.year == '2019'">{{cutoff.st_open}}</td>
+                    <td *ngIf = "cutoff.year == '2019'">{{cutoff.st_close}}</td>
+                </tr>
+            </table>
+     </div>
+
+    <br>
+    <br>
+    <div class="heading"><h3 style="left:100px;">FEES STRUCTURES</h3></div>
+    <hr>
+    <br>
+    <div class="content">
+            <br> <h3>INSTITUTE FEE</h3>
+            <table class="table table-striped">
+                <tr>
+                    <th>Particulars</th>
+                    <th>Amount</th>
+                </tr>
+                <tr>
+                    <td> Caution Money (One Time, Refundable)</td>
+                    <td>{{collegeFeesstructuresService.selectedCollegeFeesstructure.caution_fee}}</td>
+                </tr>
+                <tr>
+                    <td> One Time Fees</td>
+                    <td>{{collegeFeesstructuresService.selectedCollegeFeesstructure.one_time_fee}}</td>
+                </tr>
+                <tr>
+                    <td> Tuition Fees (Per Semester) </td>
+                    <td>{{collegeFeesstructuresService.selectedCollegeFeesstructure.tution_fee}}</td>
+                </tr>
+                <tr>
+                    <td> Other Fees (Per Semester)</td>
+                    <td>{{collegeFeesstructuresService.selectedCollegeFeesstructure.other_fee}}</td>
+                </tr>
+            </table>
+            <br> <h3>HOSTEL FEE</h3>
+
+            <table class="table table-striped">
+                <tr>
+                    <th>Particulars</th>
+                    <th>Amount</th>
+                </tr>
+                <tr>
+                    <td> Mess Caution Money (One Time, Refundable)</td>
+                    <td>{{collegeFeesstructuresService.selectedCollegeFeesstructure.mess_fee}}</td>
+                </tr>
+                 <tr>
+                    <td> Hostel Seat Rent(Per Semester)</td>
+                    <td>{{collegeFeesstructuresService.selectedCollegeFeesstructure.hostel_fee}}</td>
+                </tr>
+                <tr>
+                    <td> Electricity & Water charges (Per Semester)</td>
+                    <td>{{collegeFeesstructuresService.selectedCollegeFeesstructure.electricity_water_fee}}</td>
+                </tr>
+                <tr>
+                    <td>Mess Advanced(Per Semester)</td>
+                    <td>{{collegeFeesstructuresService.selectedCollegeFeesstructure.mess_advance}}</td>
+                </tr>
+            </table>
+     </div>
+
+     <br>
+    <br>
+    <div class="heading"><h3 style="left:100px;">FEES WAIVERS</h3></div>
+    <hr>
+    <div class="content">
+        <ol>
+         <li>100% Tuition Fee waiver for SC/ST/PH students.</li>
+         <li> Full remission of the Tuition Fee for General and OBC students whose family income is less than Rs.1 lakh per annum.</li>
+         <li>Remission of 2/3rd of the Tuition Fee for General and OBC students whose family income is between Rs.1 lakh to Rs.5 lakh per annum.</li>
+        </ol>
+    </div>
+
+
+     
+     <br>
+     <br>
+     <div class="heading"><h3 style="left:100px;">PLACEMENT</h3></div>
+     <hr>
+    <div id="placement2018">2018</div>
+    <br>
+    <div class="content" id="placement2018table">
+            <table class="table table-striped">
+                <tr>
+                    <th>Branch</th>
+                    <th>No. of Participated Students</th>
+                    <th>No. of Placed Students</th>
+                    <th>Percentage</th>
+                </tr>
+                <tr *ngFor = "let placement of collegePlacementService.CollegePlacements" >
+                    
+                    <td *ngIf = "placement.year == '2018'" >{{placement.branch}}</td>
+                    <td *ngIf = "placement.year == '2018'">{{placement.no_participated_students}}</td>
+                    <td *ngIf = "placement.year == '2018'">{{placement.no_placed_students}}</td>
+                    <td *ngIf = "placement.year == '2018'">{{placement.placed_percentage}}</td>
+                </tr>
+            </table>
+     </div>
+
+     <div id="placement2019">2019</div>
+    <br>
+    <div class="content" id="placement2019table">
+            <table class="table table-striped">
+                <tr>
+                    <th>Branch</th>
+                    <th>No. of Participated Students</th>
+                    <th>No. of Placed Stuents</th>
+                    <th>Percentage</th>
+                </tr>
+                <tr *ngFor = "let placement of collegePlacementService.CollegePlacements" >
+                    
+                    <td *ngIf = "placement.year == '2019'" >{{placement.branch}}</td>
+                    <td *ngIf = "placement.year == '2019'">{{placement.no_participated_students}}</td>
+                    <td *ngIf = "placement.year == '2019'">{{placement.no_placed_students}}</td>
+                    <td *ngIf = "placement.year == '2019'">{{placement.placed_percentage}}</td>
+                </tr>
+            </table>
+     </div>
+
+     <br>
+     <br>
+     <div class="heading"><h3 style="left:100px;">WEBSITE</h3></div>
+     <hr>
+     <div class="content">
+         <a target = "_blank" href = "{{collegeInformationService.selectedCollegeInformation.website}}"> Visit College Website</a>
+        
+     </div>
+    
+</div>
+
+
+<app-clientfooter></app-clientfooter>
+
+      
+
+  

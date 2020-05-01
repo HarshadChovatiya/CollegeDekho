@@ -1,0 +1,99 @@
+<app-header></app-header>
+<div>
+<div class="row">
+        <div class="col s12">
+          <div class="card bimage">
+            <div class="card-content white-text">
+              <div class="row">
+                <div class="col s5">
+                  <form #collegeSeatmatrixForm="ngForm">
+                    <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="collegeSeatmatrixService.selectedCollegeSeatmatrix._id">
+    
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <input type="text" name="college_code" #college_code="ngModel" [(ngModel)]="collegeSeatmatrixService.selectedCollegeSeatmatrix.college_code" placeholder = "eg.IITB" required>
+                        <label>College Code:
+                          <label class="red-text">*</label>
+                        </label>
+                      </div>
+                    </div>
+    
+    
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <input type="text" name="branch" #branch="ngModel" [(ngModel)]="collegeSeatmatrixService.selectedCollegeSeatmatrix.branch" placeholder="eg.Computer Science and Engineering" required>
+                        <label>Branch :
+                        <label class="red-text">*</label>
+                        </label>
+                      </div>
+                    </div>
+    
+                    <div class="row">
+                        <div class="input-field col s12">
+                          <input type="number" name="no_of_seats" #no_of_seats="ngModel" [(ngModel)]="collegeSeatmatrixService.selectedCollegeSeatmatrix.no_of_seats" placeholder="eg.60" required>
+                          <label>No of Seats :
+                          <label class="red-text">*</label>
+                          </label>
+                        </div>
+                     </div>
+    
+                     <div class="row">
+                        <div class="input-field col s12">
+                          <input type="text" name="catagory" #catagory="ngModel" [(ngModel)]="collegeSeatmatrixService.selectedCollegeSeatmatrix.catagory" placeholder="eg.General" required>
+                          <label>Catagory :
+                          <label class="red-text">*</label>
+                          </label>
+                        </div>
+                      </div>
+    
+                      <div class="row">
+                          <div class="input-field col s12">
+                            <input type="text" name="quota" #quota="ngModel" [(ngModel)]="collegeSeatmatrixService.selectedCollegeSeatmatrix.quota" placeholder="Home/Other" required>
+                            <label>Quota :
+                            <label class="red-text">*</label>
+                            </label>
+                          </div>
+                        </div>
+    
+                         
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <button class="btn btn-custom right" type="button" (click)="resetForm(collegeSeatmatrixForm)">Reset</button>
+                        <button class="btn btn-custom right" type="submit" (click)="onSubmit(collegeSeatmatrixForm)" [disabled]="!collegeSeatmatrixForm.valid">Submit</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <div class="col s7">
+                    <table class="responsive-table highlight">
+                        <thead>
+                          <tr>
+                            <th>Code</th>
+                            <th>Branch</th>
+                            <th>Seat</th>
+                            <th>Catagory</th>
+                          </tr>
+                        </thead>
+                        <tr *ngFor="let seats of collegeSeatmatrixService.CollegeSeatmatrixs">
+                          <td>{{seats.college_code}}</td>
+                          <td>{{seats.branch}}</td>
+                          <td>{{seats.no_of_seats}}</td>
+                          <td>{{seats.catagory}}</td>
+                          <td>
+                              <a class="action-btn" (click)="onEdit(seats)">
+                                <i class="material-icons">edit</i>
+                              </a>
+                              <a class="action-btn" (click)="onDelete(seats._id,collegeSeatmatrixForm)">
+                                <i class="material-icons">delete</i>
+                              </a>
+                            </td>
+                        </tr>
+                      </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+      </div>
+      </div>

@@ -1,0 +1,21 @@
+<app-clientheader></app-clientheader>
+<div style="background-color : #e4eff1;">
+        <br>
+        <h1 style="color: rgb(53, 196, 201);text-align: center;font-family:Verdana, Geneva, Tahoma, sans-serif;">Find the right college with our College Finder.</h1>
+        
+<span class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+
+        <div class="hovereffect" *ngFor = "let college of collegeInformationService.CollegeInformations" style="height:200px;width:350px;margin: 50px;border: 7px double rgb(54, 146, 153);">
+                <a (click) = "onSubmit(college)">
+                    <img class="img-responsive"  src={{college.image_path}} alt="">
+                        <div class="overlay">
+                            <h2>{{college.college_name}}</h2>
+                        </div>
+                </a>
+        </div>
+
+
+</span>
+</div>
+
+<app-clientfooter></app-clientfooter>
